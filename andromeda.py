@@ -4,8 +4,6 @@ import os
 from random import shuffle
 from string import *
 
-serials = ""
-
 def generate(numberOfSerials, lengthOfSerial, useNumber="y", useUppercase="y", useLowercase="y", useSymbols="y"):
     if useNumber == False:
         useNumber = ""
