@@ -1,0 +1,6 @@
+README.md
+setup.py
+andromeda.egg-info/PKG-INFO
+andromeda.egg-info/SOURCES.txt
+andromeda.egg-info/dependency_links.txt
+andromeda.egg-info/top_level.txt
