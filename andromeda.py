@@ -4,15 +4,17 @@ import os
 from random import shuffle
 from string import *
 
-def main():
-    print()
+serials = ""
 
-    numberOfSerials = int(input("Serial number amount: "))
-    lengthOfSerial  = int(input("Serial number length: "))
-    useNumber    = ("y" == input("Enter 'y' to use numbers: "))
-    useUppercase = ("y" == input("Enter 'y' to use uppercase letters: "))
-    useLowercase = ("y" == input("Enter 'y' to use lowercase letters: "))
-    useSymbols   = ("y" == input("Enter 'y' to use symbols: "))
+def generate(numberOfSerials, lengthOfSerial, useNumber="y", useUppercase="y", useLowercase="y", useSymbols="y"):
+    if useNumber == False:
+        useNumber = ""
+    if useUppercase == False:
+        useUppercase = ""
+    if useLowercase == False:
+        useLowercase = ""
+    if useSymbols == False:
+        useSymbols = ""
 
     listOfCharacterLists = createListOfCharacterLists(lengthOfSerial, useNumber, useUppercase,
                                                       useLowercase, useSymbols)
@@ -23,8 +25,6 @@ def main():
         return
 
     generateSerialNumbers(numberOfSerials, lengthOfSerial, listOfCharacterLists, totalPossibleSerialNumbers)
-
-    print()
 
 def createListOfCharacterLists(lengthOfSerial, useNumber, useUppercase, useLowercase, useSymbols):
     characterList = createCharacterList(useNumber, useUppercase, useLowercase, useSymbols)
@@ -53,25 +53,14 @@ def createCharacterList(useNumber, useUppercase, useLowercase, useSymbols):
 
     return characterList
 
-def printErrorMessage(numberOfSerials, totalPossibleSerialNumbers):
-    print("Requested serial number amount: {}".format(numberOfSerials))
-    print("Total possible serial numbers given current inputs: {}".format(totalPossibleSerialNumbers))
-    print("Try one or more of the following:")
-    print("- Increasing the length of the serial numbers")
-    print("- Allowing more types of symbols to be used")
-    print("- Decreasing the amount of serial numbers to be generated")
-
 def generateSerialNumbers(numberOfSerials, lengthOfSerial, listOfCharacterLists, totalPossibleSerialNumbers):
     fileName = str(numberOfSerials) + "_unique_serials.txt"
-    printSerialNumbersToFile(fileName, numberOfSerials, lengthOfSerial,
+    addSerialsToArray(numberOfSerials, lengthOfSerial,
                              listOfCharacterLists, totalPossibleSerialNumbers)
-    print()
-    printPathToTerminal(fileName)
-    printStatsToTerminal(numberOfSerials, totalPossibleSerialNumbers)
 
-def printSerialNumbersToFile(fileName, numberOfSerials, lengthOfSerial,
-                             listOfCharacterLists, totalPossibleSerialNumbers):
-    serialFile = open(fileName, "w")
+def addSerialsToArray(numberOfSerials, lengthOfSerial, listOfCharacterLists, totalPossibleSerialNumbers):
+    global serial_array
+    serial_array = []
 
     singleSerialNumberString = ""
     indexList = [0] * lengthOfSerial
@@ -81,20 +70,19 @@ def printSerialNumbersToFile(fileName, numberOfSerials, lengthOfSerial,
         for y in range(lengthOfSerial):
             singleSerialNumberString += listOfCharacterLists[y][indexList[y]]
 
-        serialFile.write(singleSerialNumberString + "\n")
+        serial_array.append(singleSerialNumberString)
         singleSerialNumberString = ""
 
         # printIndexList(indexList)
 
         increaseIndexVectorBy(indexList, len(listOfCharacterLists[0]), distanceBetweenSerialNumbers)
 
-    serialFile.close()
 
 def printIndexList(indexList):
     for index in indexList:
         print(str(index).rjust(3), end = '')
 
-    print();
+    print()
 
 def increaseIndexVectorBy(indexVctor, rolloverNumber, distanceBetweenSerialNumbers):
     increaseValueAtIndexXBy = 0
@@ -110,15 +98,5 @@ def increaseIndexVectorBy(indexVctor, rolloverNumber, distanceBetweenSerialNumbe
                 indexVctor[x - 1] += 1
 
         distanceBetweenSerialNumbers = int(distanceBetweenSerialNumbers / rolloverNumber)
-
-def printPathToTerminal(fileName):
-    filePath = os.path.dirname(os.path.realpath(__file__)) + "/" + fileName
-    print("File path: {}".format(filePath))
-
-def printStatsToTerminal(numberOfSerials, totalPossibleSerialNumbers):
-    print()
-    print("Requested serial number amount: {}".format(numberOfSerials))
-    print("Total possible serial numbers given current inputs: {}".format(totalPossibleSerialNumbers))
-    print("The printed licenses cover {}% of the total license pool".format((numberOfSerials / totalPossibleSerialNumbers) * 100))
-
-main()
+def get_serials():
+    return serial_array
