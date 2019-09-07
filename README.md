@@ -1,7 +1,7 @@
 # andromeda.py
 
 Quickly create large amounts of unique serial numbers.  
-Forked from [JosephTLyons/andromeda]("https://github.com/JosephTLyons/andromeda")
+Forked from [JosephTLyons/andromeda](https://github.com/JosephTLyons/andromeda)
 
 ## Creating Unique Serial Numbers
 
