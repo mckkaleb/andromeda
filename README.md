@@ -1,7 +1,7 @@
-# andromeda
+# andromeda.py
 
-Quickly create large amounts of unique serial numbers.  Heavily
-inspired by [random code generator](https://www.randomcodegenerator.com/en/generate-serial-numbers).
+Quickly create large amounts of unique serial numbers.  
+Forked from [JosephTLyons/andromeda]("https://github.com/JosephTLyons/andromeda")
 
 ## Creating Unique Serial Numbers
 
