@@ -5,47 +5,7 @@ Forked from [JosephTLyons/andromeda](https://github.com/JosephTLyons/andromeda)
 
 ## Creating Unique Serial Numbers
 
-Making a batch of unique licenses is very simple. Run the script with:
-
-```shell
-./andromeda.py
-```
-
-Let's go ahead and create `1000` serial numbers.  We want the serial numbers to
-be `20` symbols long and we want to include numbers, uppercase letters, and
-lowercase letters, but not symbols:
-
-```text
-Serial number amount: 1000
-Serial number length: 20
-Enter 'y' to use numbers: y
-Enter 'y' to use uppercase letters: y
-Enter 'y' to use lowercase letters: y
-Enter 'y' to use symbols: n
-```
-
-When we are done, we will find a new file within the same folder as this script
-named `1000_unique_serials.txt`.  Opening the file, we see:
-
-```text
-dPzu8znblSPF1rmy4coW
-djKD1ZxNLqAAo6ah6ZuA
-dCZbvdHO9KIvm3CAnNCE
-dzfN89poHQ7QMxZgGKH1
-dqnj4G4A3mh23SpeoaZG
-drsWemJsfg6aCzw0wHge
-dYGS8jevEv5T0PFnd1bZ
-dDSR4ZrQ2JgVZT2GmV4t
-doO2eKULC3JLfuWBhQys
-dp5yr9w1PrPpuAIWcGMH
-dgFnW1Eppccc5gRNEFAR
-dWosgmKFvdFtbKvCDB5X
-dyTmrjnIhLK1pwhmXr9V
-dMJQWVxqxRSjyt5lIOey
-dwbPgKHTq5frkOzHJ0wP
-dFheZibfSFeXVlPfzeSg
-...
-```
+Documentation has not been completed at this time.
 
 ## How it Works
 
