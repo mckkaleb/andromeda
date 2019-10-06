@@ -24,6 +24,7 @@ generate(10, 10) # generate() has two mandatory parameters: number_of_serials, l
 - `use_lowercase` controls if there will be lowercase letters in the serials
 - `use_uppercase` controls if there will be uppercase letters in the serials
 - `use_symbols` controls if there will be symbols in the serials
+
 All of these default to True.
 
 For example, if you wanted to have serials that do not contain symbols, then you would call the `generate()` function like this:
