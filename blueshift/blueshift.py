@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-name = "nightsky"
-
 import os
 from random import shuffle
 from string import *
