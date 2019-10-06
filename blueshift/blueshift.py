@@ -4,68 +4,68 @@ import os
 from random import shuffle
 from string import *
 
-def generate(numberOfSerials, lengthOfSerial, useNumber="y", useUppercase="y", useLowercase="y", useSymbols="y"):
-    if useNumber == False:
-        useNumber = ""
-    if useUppercase == False:
-        useUppercase = ""
-    if useLowercase == False:
-        useLowercase = ""
-    if useSymbols == False:
-        useSymbols = ""
+def generate(number_of_serials, length_of_serial, use_numbers="y", use_uppercase="y", use_lowercase="y", use_symbols="y"):
+    if use_numbers == False:
+        use_numbers = ""
+    if use_uppercase == False:
+        use_uppercase = ""
+    if use_lowercase == False:
+        use_lowercase = ""
+    if use_symbols == False:
+        use_symbols = ""
 
-    listOfCharacterLists = createListOfCharacterLists(lengthOfSerial, useNumber, useUppercase,
-                                                      useLowercase, useSymbols)
-    totalPossibleSerialNumbers = len(listOfCharacterLists[0]) ** lengthOfSerial
+    listOfCharacterLists = createListOfCharacterLists(length_of_serial, use_numbers, use_uppercase,
+                                                      use_lowercase, use_symbols)
+    totalPossibleSerialNumbers = len(listOfCharacterLists[0]) ** length_of_serial
 
-    if (totalPossibleSerialNumbers < numberOfSerials):
-        printErrorMessage(numberOfSerials, totalPossibleSerialNumbers)
+    if (totalPossibleSerialNumbers < number_of_serials):
+        printErrorMessage(number_of_serials, totalPossibleSerialNumbers)
         return
 
-    generateSerialNumbers(numberOfSerials, lengthOfSerial, listOfCharacterLists, totalPossibleSerialNumbers)
+    generateSerialNumbers(number_of_serials, length_of_serial, listOfCharacterLists, totalPossibleSerialNumbers)
 
-def createListOfCharacterLists(lengthOfSerial, useNumber, useUppercase, useLowercase, useSymbols):
-    characterList = createCharacterList(useNumber, useUppercase, useLowercase, useSymbols)
+def createListOfCharacterLists(length_of_serial, use_numbers, use_uppercase, use_lowercase, use_symbols):
+    characterList = createCharacterList(use_numbers, use_uppercase, use_lowercase, use_symbols)
     listOfCharacterLists = []
 
-    for i in range(lengthOfSerial):
+    for i in range(length_of_serial):
         shuffle(characterList)
         listOfCharacterLists.append(characterList.copy())
 
     return listOfCharacterLists
 
-def createCharacterList(useNumber, useUppercase, useLowercase, useSymbols):
+def createCharacterList(use_numbers, use_uppercase, use_lowercase, use_symbols):
     characterList = []
 
-    if useNumber:
+    if use_numbers:
         characterList += digits
 
-    if useUppercase:
+    if use_uppercase:
         characterList += ascii_uppercase
 
-    if useLowercase:
+    if use_lowercase:
         characterList += ascii_lowercase
 
-    if useSymbols:
+    if use_symbols:
         characterList += punctuation
 
     return characterList
 
-def generateSerialNumbers(numberOfSerials, lengthOfSerial, listOfCharacterLists, totalPossibleSerialNumbers):
-    fileName = str(numberOfSerials) + "_unique_serials.txt"
-    addSerialsToArray(numberOfSerials, lengthOfSerial,
+def generateSerialNumbers(number_of_serials, length_of_serial, listOfCharacterLists, totalPossibleSerialNumbers):
+    fileName = str(number_of_serials) + "_unique_serials.txt"
+    addSerialsToArray(number_of_serials, length_of_serial,
                              listOfCharacterLists, totalPossibleSerialNumbers)
 
-def addSerialsToArray(numberOfSerials, lengthOfSerial, listOfCharacterLists, totalPossibleSerialNumbers):
+def addSerialsToArray(number_of_serials, length_of_serial, listOfCharacterLists, totalPossibleSerialNumbers):
     global serial_array
     serial_array = []
 
     singleSerialNumberString = ""
-    indexList = [0] * lengthOfSerial
-    distanceBetweenSerialNumbers = int(totalPossibleSerialNumbers / numberOfSerials)
+    indexList = [0] * length_of_serial
+    distanceBetweenSerialNumbers = int(totalPossibleSerialNumbers / number_of_serials)
 
-    for _ in range(numberOfSerials):
-        for y in range(lengthOfSerial):
+    for _ in range(number_of_serials):
+        for y in range(length_of_serial):
             singleSerialNumberString += listOfCharacterLists[y][indexList[y]]
 
         serial_array.append(singleSerialNumberString)
