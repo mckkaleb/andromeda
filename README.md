@@ -3,6 +3,20 @@
 Quickly create large amounts of unique serial numbers.  
 Forked from [JosephTLyons/andromeda](https://github.com/JosephTLyons/andromeda)
 
+## Installation
+
+Install blueshift with pip: 
+```pip install blueshift```
+
+Or, download blueshift [here](https://github.com/mckkaleb/blueshift/archive/0.0.1.tar.gz)
+
+## Usage
+
+To use blueshift in your projects, import it like this:
+```python
+from blueshift import generate, get_serials #or just 'import blueshift'
+```
+
 ## Creating Unique Serial Numbers
 
 Using blueshift is very easy and simple. There are only two functions you need to know to start using blueshift. These functions are:
