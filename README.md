@@ -8,7 +8,7 @@ Forked from [JosephTLyons/andromeda](https://github.com/JosephTLyons/andromeda)
 Install blueshift with pip: 
 ```pip install blueshift```
 
-Or, download blueshift [here](https://github.com/mckkaleb/blueshift/archive/0.0.2.tar.gz)
+Or, download blueshift [here](https://github.com/mckkaleb/blueshift/archive/1.0.0.tar.gz)
 
 ## Usage
 
